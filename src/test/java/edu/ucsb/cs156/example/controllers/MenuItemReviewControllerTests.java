@@ -92,7 +92,6 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
             .dateReviewed(ldt1)
             .build();
 
-    // LocalDateTime ldt2 = LocalDateTime.parse("2022-03-11T00:00:00");
     ArrayList<MenuItemReview> expectedMIRs = new ArrayList<>();
     expectedMIRs.add(menuItemReview1);
     when(menuItemReviewRepository.findAll()).thenReturn(expectedMIRs);
