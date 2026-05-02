@@ -1,4 +1,4 @@
-const ucsdbDiningCommonsMenuItemFixtures = {
+const ucsbDiningCommonsMenuItemFixtures = {
   oneMenuItem: [
     {
       id: 1,
@@ -30,4 +30,4 @@ const ucsdbDiningCommonsMenuItemFixtures = {
   ],
 };
 
-export { ucsdbDiningCommonsMenuItemFixtures };
+export { ucsbDiningCommonsMenuItemFixtures };
