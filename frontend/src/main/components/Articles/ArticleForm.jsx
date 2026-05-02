@@ -79,7 +79,7 @@ function ArticleForm({
         </Form.Control.Feedback>
       </Form.Group>
 
-       <Form.Group className="mb-3">
+      <Form.Group className="mb-3">
         <Form.Label htmlFor="explanation">Explanation</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-explanation"}
@@ -95,7 +95,7 @@ function ArticleForm({
         </Form.Control.Feedback>
       </Form.Group>
 
-       <Form.Group className="mb-3">
+      <Form.Group className="mb-3">
         <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-email"}
@@ -112,22 +112,21 @@ function ArticleForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-            <Form.Label htmlFor="dateAdded">Date Added(iso format)</Form.Label>
-            <Form.Control
-              data-testid={testIdPrefix + "-dateAdded"}
-              id="dateAdded"
-              type="datetime-local"
-              isInvalid={Boolean(errors.dateAdded)}
-              {...register("dateAdded", {
-                required: true,
-                pattern: isodate_regex,
-              })}
-            />
-            <Form.Control.Feedback type="invalid">
-              {errors.dateAdded && "Date Added is required. "}
-            </Form.Control.Feedback>
+        <Form.Label htmlFor="dateAdded">Date Added(iso format)</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-dateAdded"}
+          id="dateAdded"
+          type="datetime-local"
+          isInvalid={Boolean(errors.dateAdded)}
+          {...register("dateAdded", {
+            required: true,
+            pattern: isodate_regex,
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.dateAdded && "Date Added is required. "}
+        </Form.Control.Feedback>
       </Form.Group>
-
 
       <Button type="submit" data-testid={testIdPrefix + "-submit"}>
         {buttonLabel}
