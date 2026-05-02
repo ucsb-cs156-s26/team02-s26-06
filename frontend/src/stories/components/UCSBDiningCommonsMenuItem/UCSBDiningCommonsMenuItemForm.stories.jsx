@@ -3,31 +3,31 @@ import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenu
 import { ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures.js";
 
 export default {
-    title: "components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm",
-    component: UCSBDiningCommonsMenuItemForm,
+  title: "components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm",
+  component: UCSBDiningCommonsMenuItemForm,
 };
 
 const Template = (args) => {
-    return <UCSBDiningCommonsMenuItemForm {...args} />;
+  return <UCSBDiningCommonsMenuItemForm {...args} />;
 };
 
 export const Create = Template.bind({});
 
 Create.args = {
-    buttonLabel: "Create",
-    submitAction: (data) => {
-        console.log("Submit was clicked with data: ", data);
-        window.alert("Submit was clicked with data: " + JSON.stringify(data));
-    },
+  buttonLabel: "Create",
+  submitAction: (data) => {
+    console.log("Submit was clicked with data: ", data);
+    window.alert("Submit was clicked with data: " + JSON.stringify(data));
+  },
 };
 
 export const Update = Template.bind({});
 
 Update.args = {
-    initialContents: ucsbDiningCommonsMenuItemFixtures.oneMenuItem,
-    buttonLabel: "Update",
-    submitAction: (data) => {
-        console.log("Submit was clicked with data: ", data);
-        window.alert("Submit was clicked with data: " + JSON.stringify(data));
-    },
+  initialContents: ucsbDiningCommonsMenuItemFixtures.oneMenuItem,
+  buttonLabel: "Update",
+  submitAction: (data) => {
+    console.log("Submit was clicked with data: ", data);
+    window.alert("Submit was clicked with data: " + JSON.stringify(data));
+  },
 };
