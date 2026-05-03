@@ -66,7 +66,7 @@ function MenuItemReviewForm({initialContents, submitAction, buttonLabel = "Creat
             required: "The reviewerEmail is required.",
             maxLength: {
               value: 255,
-              message: "Max length 255 characters",
+              message: "Email must have max length of 255 characters.",
             },
           })}
         />
@@ -110,7 +110,7 @@ function MenuItemReviewForm({initialContents, submitAction, buttonLabel = "Creat
             required: "The comments are required.",
             maxLength: {
               value: 255,
-              message: "Max length 255 characters",
+              message: "Comments have max length of 255 characters.",
             },
           })}
         />

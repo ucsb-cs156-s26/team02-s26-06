@@ -115,7 +115,7 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+      expect(screen.getByText(/Email must have max length of 255 characters./)).toBeInTheDocument();
     });
 
     const nameInput3 = screen.getByTestId(`${testId}-stars`);
@@ -139,7 +139,15 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+      expect(screen.getByText(/Comments have max length of 255 characters./)).toBeInTheDocument();
     });
+
+    fireEvent.change(nameInput5, { target: { value: "a".repeat(255) } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+        expect(screen.queryByText(/Comments have max length of 255 characters./)).not.toBeInTheDocument();
+    });
+
   });
 });
