@@ -35,4 +35,4 @@ const menuItemReviewFixtures = {
   ],
 };
 
-export { ucsbMenuItemReviewFixtures };
+export { menuItemReviewFixtures };
