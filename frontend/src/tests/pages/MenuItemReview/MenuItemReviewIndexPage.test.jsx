@@ -33,7 +33,7 @@ describe("MenuItemReviewIndexPage tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-         <MenuItemReviewIndexPage />
+          <MenuItemReviewIndexPage />
         </MemoryRouter>
       </QueryClientProvider>,
     );
