@@ -19,7 +19,13 @@ vi.mock("react-router-dom", async () => {
 describe("MenuItemReviewForm tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["ItemId","ReviewerEmail","Stars","Comments","DateReviewed"];
+  const expectedHeaders = [
+    "ItemId",
+    "ReviewerEmail",
+    "Stars",
+    "Comments",
+    "DateReviewed",
+  ];
   const testId = "MenuItemReviewForm";
 
   test("renders correctly with no initialContents", async () => {
@@ -89,10 +95,14 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await screen.findByText(/The itemId is required./);
-    expect(screen.getByText(/The reviewerEmail is required./)).toBeInTheDocument();
+    expect(
+      screen.getByText(/The reviewerEmail is required./),
+    ).toBeInTheDocument();
     expect(screen.getByText(/The stars are required./)).toBeInTheDocument();
     expect(screen.getByText(/The comments are required./)).toBeInTheDocument();
-    expect(screen.getByText(/The dateReviewed is required./)).toBeInTheDocument();
+    expect(
+      screen.getByText(/The dateReviewed is required./),
+    ).toBeInTheDocument();
 
     const nameInput = screen.getByTestId(`${testId}-itemId`);
     fireEvent.change(nameInput, { target: { value: "1".repeat(31) } });
@@ -115,7 +125,9 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Email must have max length of 255 characters./)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Email must have max length of 255 characters./),
+      ).toBeInTheDocument();
     });
 
     const nameInput3 = screen.getByTestId(`${testId}-stars`);
@@ -139,15 +151,18 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Comments have max length of 255 characters./)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Comments have max length of 255 characters./),
+      ).toBeInTheDocument();
     });
 
     fireEvent.change(nameInput5, { target: { value: "a".repeat(255) } });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-        expect(screen.queryByText(/Comments have max length of 255 characters./)).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/Comments have max length of 255 characters./),
+      ).not.toBeInTheDocument();
     });
-
   });
 });
