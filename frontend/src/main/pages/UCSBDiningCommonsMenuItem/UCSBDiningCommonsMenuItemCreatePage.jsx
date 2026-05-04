@@ -4,42 +4,47 @@ import { Navigate } from "react-router";
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
-export default function UCSBDiningCommonsMenuItemCreatePage({ storybook = false }) {
+export default function UCSBDiningCommonsMenuItemCreatePage({
+  storybook = false,
+}) {
+  const objectToAxiosParams = (ucsbDiningCommonsMenuItem) => ({
+    url: "/api/ucsbdiningcommonsmenuitem/post",
+    method: "POST",
+    params: {
+      diningCommonsCode: ucsbDiningCommonsMenuItem.diningCommonsCode,
+      name: ucsbDiningCommonsMenuItem.name,
+      station: ucsbDiningCommonsMenuItem.station,
+    },
+  });
 
-    const objectToAxiosParams = (ucsbDiningCommonsMenuItem) => ({
-        url: "/api/ucsbdiningcommonsmenuitem/post",
-        method: "POST",
-        params: {
-            diningCommonsCode: ucsbDiningCommonsMenuItem.diningCommonsCode,
-            name: ucsbDiningCommonsMenuItem.name,
-            station: ucsbDiningCommonsMenuItem.station,
-        },
-    });
-
-    const onSuccess = (ucsbDiningCommonsMenuItem) => {
-        toast(`New UCSBDiningCommonsMenuItem Created - id: ${ucsbDiningCommonsMenuItem.id} name: ${ucsbDiningCommonsMenuItem.name}`);
-    };
-
-    const mutation = useBackendMutation(objectToAxiosParams, { onSuccess },
-        // Stryker disable next-line all : hard to set up test for caching
-        ["/api/ucsbdiningcommonsmenuitem/all"],
+  const onSuccess = (ucsbDiningCommonsMenuItem) => {
+    toast(
+      `New UCSBDiningCommonsMenuItem Created - id: ${ucsbDiningCommonsMenuItem.id} name: ${ucsbDiningCommonsMenuItem.name}`,
     );
+  };
 
-    const { isSuccess } = mutation;
+  const mutation = useBackendMutation(
+    objectToAxiosParams,
+    { onSuccess },
+    // Stryker disable next-line all : hard to set up test for caching
+    ["/api/ucsbdiningcommonsmenuitem/all"],
+  );
 
-    const onSubmit = async (data) => {
-        mutation.mutate(data);
-    };
+  const { isSuccess } = mutation;
 
-    if (isSuccess && !storybook) {
-        return <Navigate to="/ucsbdiningcommonsmenuitem" />;
-    }
+  const onSubmit = async (data) => {
+    mutation.mutate(data);
+  };
+
+  if (isSuccess && !storybook) {
+    return <Navigate to="/diningcommonsmenuitem" />;
+  }
 
   return (
     <BasicLayout>
       <div className="pt-2">
         <h1>Create new Dining Commons Menu Item</h1>
-          <UCSBDiningCommonsMenuItemForm submitAction={onSubmit} />
+        <UCSBDiningCommonsMenuItemForm submitAction={onSubmit} />
       </div>
     </BasicLayout>
   );

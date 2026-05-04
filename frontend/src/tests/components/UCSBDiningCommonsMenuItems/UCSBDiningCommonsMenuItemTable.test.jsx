@@ -152,7 +152,7 @@ describe("UserTable tests", () => {
 
     await waitFor(() =>
       expect(mockedNavigate).toHaveBeenCalledWith(
-        "/ucsbdiningcommonsmenuitem/edit/1",
+        "/diningcommonsmenuitem/edit/1",
       ),
     );
   });
