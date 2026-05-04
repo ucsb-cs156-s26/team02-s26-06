@@ -21,10 +21,10 @@ describe("HelpRequestTable tests", () => {
 
   const expectedHeaders = [
     "id",
-    "RequesterEmail",
+    "Requester Email",
     "TeamId",
-    "TableOrBreakoutRoom",
-    "RequestTime (iso format)",
+    "Table or Breakout Room",
+    "Request Time (iso format)",
     "Explanation",
     "Solved",
   ];
