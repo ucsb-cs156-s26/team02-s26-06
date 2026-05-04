@@ -19,10 +19,10 @@ describe("UCSBOrganizationForm tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = [
-    "orgCode",
-    "orgTranslationShort",
-    "orgTranslation",
-    "inactive",
+    "Org Code",
+    "Org Translation Short",
+    "Org Translation",
+    "Inactive",
   ];
   const testId = "UCSBOrganizationForm";
 
