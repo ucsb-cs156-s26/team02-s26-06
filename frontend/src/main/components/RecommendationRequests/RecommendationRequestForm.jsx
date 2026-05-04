@@ -54,7 +54,7 @@ function RecommendationRequestForm({
           {errors.requesterEmail?.message}
         </Form.Control.Feedback>
       </Form.Group>
-      
+
       <Form.Group className="mb-3">
         <Form.Label htmlFor="professorEmail">ProfessorEmail</Form.Label>
         <Form.Control
@@ -74,7 +74,6 @@ function RecommendationRequestForm({
           {errors.professorEmail?.message}
         </Form.Control.Feedback>
       </Form.Group>
-
 
       <Form.Group className="mb-3">
         <Form.Label htmlFor="description">Description</Form.Label>
