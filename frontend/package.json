@@ -22,17 +22,20 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.90.17",
+    "@tanstack/react-query": "^5.100.8",
     "@tanstack/react-table": "^8.21.3",
     "@testing-library/user-event": "^14.6.1",
     "@uiw/react-json-view": "^2.0.0-alpha.40",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
-    "react": "^19.2.3",
+    "jest-mock-console": "^2.0.0",
+    "react": "^18.3.1",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.2.3",
+    "react-dom": "^18.3.1",
     "react-hook-form": "^7.71.1",
+    "react-query": "^3.39.3",
     "react-router": "^7.12.0",
+    "react-router-dom": "^7.14.2",
     "react-toastify": "^11.0.5"
   },
   "devDependencies": {
