@@ -1,8 +1,8 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router";
 
-import HelpRequestForm from "main/components/HelpRequests/HelpRequestForm";
-import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
+import RecommendationRequestForm from "main/components/RecommendationRequests/RecommendationRequestForm";
+import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -15,24 +15,24 @@ vi.mock("react-router", async () => {
   };
 });
 
-describe("HelpRequestForm tests", () => {
+describe("RecommendationRequestForm tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = [
     "Requester Email",
-    "TeamId",
-    "Table or Breakout Room",
-    "Request Time (iso format)",
+    "Professor Email",
     "Explanation",
-    "Solved",
+    "Date Requested(iso format)",
+    "Date Needed(iso format)",
+    "Done",
   ];
-  const testId = "HelpRequestForm";
+  const testId = "RecommendationRequestForm";
 
   test("renders correctly with no initialContents", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm />
+          <RecommendationRequestForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -49,8 +49,10 @@ describe("HelpRequestForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm
-            initialContents={helpRequestFixtures.oneHelpRequest}
+          <RecommendationRequestForm
+            initialContents={
+              recommendationRequestFixtures.oneRecommendationRequest
+            }
           />
         </Router>
       </QueryClientProvider>,
@@ -71,7 +73,7 @@ describe("HelpRequestForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm />
+          <RecommendationRequestForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -87,7 +89,7 @@ describe("HelpRequestForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm />
+          <RecommendationRequestForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -96,14 +98,12 @@ describe("HelpRequestForm tests", () => {
     const submitButton = screen.getByText(/Create/);
     fireEvent.click(submitButton);
 
-    await screen.findByText(/RequesterEmail is required/);
-    expect(screen.getByText(/TeamId is required/)).toBeInTheDocument();
-    expect(
-      screen.getByText(/TableOrBreakoutRoom is required/),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/RequestTime is required/)).toBeInTheDocument();
+    await screen.findByText(/Requester Email is required/);
+    expect(screen.getByText(/Professor Email is required/)).toBeInTheDocument();
     expect(screen.getByText(/Explanation is required/)).toBeInTheDocument();
-    expect(screen.getByText(/Solved is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Date Requested is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Date Needed is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Done is required/)).toBeInTheDocument();
 
     const requesterEmailInput = screen.getByTestId(`${testId}-requesterEmail`);
     fireEvent.change(requesterEmailInput, {

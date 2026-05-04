@@ -2,7 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
-function HelpRequestForm({
+function ArticleForm({
   initialContents,
   submitAction,
   buttonLabel = "Create",
@@ -17,6 +17,8 @@ function HelpRequestForm({
 
   const navigate = useNavigate();
 
+  const testIdPrefix = "ArticleForm";
+
   // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
   // Note that even this complex regex may still need some tweaks
 
@@ -24,8 +26,6 @@ function HelpRequestForm({
   const isodate_regex =
     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
   // Stryker restore Regex
-
-  const testIdPrefix = "HelpRequestForm";
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -44,14 +44,14 @@ function HelpRequestForm({
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
+        <Form.Label htmlFor="title">Title</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-requesterEmail"}
-          id="requesterEmail"
+          data-testid={testIdPrefix + "-title"}
+          id="title"
           type="text"
-          isInvalid={Boolean(errors.requesterEmail)}
-          {...register("requesterEmail", {
-            required: "RequesterEmail is required",
+          isInvalid={Boolean(errors.title)}
+          {...register("title", {
+            required: "Title is required.",
             maxLength: {
               value: 255,
               message: "Max length 255 characters",
@@ -59,55 +59,22 @@ function HelpRequestForm({
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.requesterEmail?.message}
+          {errors.title?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="teamId">TeamId</Form.Label>
+        <Form.Label htmlFor="url">Url</Form.Label>
         <Form.Control
-          id="teamId"
+          id="url"
           type="text"
-          isInvalid={Boolean(errors.teamId)}
-          {...register("teamId", {
-            required: "TeamId is required",
+          isInvalid={Boolean(errors.url)}
+          {...register("url", {
+            required: "Url is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.teamId?.message}
-        </Form.Control.Feedback>
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label htmlFor="tableOrBreakoutRoom">
-          Table or Breakout Room
-        </Form.Label>
-        <Form.Control
-          id="tableOrBreakoutRoom"
-          type="text"
-          isInvalid={Boolean(errors.tableOrBreakoutRoom)}
-          {...register("tableOrBreakoutRoom", {
-            required: "TableOrBreakoutRoom is required",
-          })}
-        />
-        <Form.Control.Feedback type="invalid">
-          {errors.tableOrBreakoutRoom?.message}
-        </Form.Control.Feedback>
-      </Form.Group>
-
-      <Form.Group className="mb-3">
-        <Form.Label htmlFor="requestTime">Request Time (iso format)</Form.Label>
-        <Form.Control
-          id="requestTime"
-          type="datetime-local"
-          isInvalid={Boolean(errors.requestTime)}
-          {...register("requestTime", {
-            required: true,
-            pattern: isodate_regex,
-          })}
-        />
-        <Form.Control.Feedback type="invalid">
-          {errors.requestTime && "RequestTime is required"}
+          {errors.url?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
@@ -118,7 +85,7 @@ function HelpRequestForm({
           type="text"
           isInvalid={Boolean(errors.explanation)}
           {...register("explanation", {
-            required: "Explanation is required",
+            required: "Explanation is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -127,17 +94,33 @@ function HelpRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="solved">Solved</Form.Label>
+        <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Control
-          id="solved"
-          type="text"
-          isInvalid={Boolean(errors.solved)}
-          {...register("solved", {
-            required: "Solved is required",
+          id="email"
+          type="email"
+          isInvalid={Boolean(errors.email)}
+          {...register("email", {
+            required: "Email is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.solved?.message}
+          {errors.email?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="dateAdded">Date Added(iso format)</Form.Label>
+        <Form.Control
+          id="dateAdded"
+          type="datetime-local"
+          isInvalid={Boolean(errors.dateAdded)}
+          {...register("dateAdded", {
+            required: true,
+            pattern: isodate_regex,
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.dateAdded && "Date Added is required. "}
         </Form.Control.Feedback>
       </Form.Group>
 
@@ -153,4 +136,4 @@ function HelpRequestForm({
   );
 }
 
-export default HelpRequestForm;
+export default ArticleForm;

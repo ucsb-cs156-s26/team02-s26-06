@@ -1,10 +1,11 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router";
 
-import HelpRequestForm from "main/components/HelpRequests/HelpRequestForm";
-import { helpRequestFixtures } from "fixtures/helpRequestFixtures";
+import ArticleForm from "main/components/Articles/ArticleForm";
+import { articleFixtures } from "fixtures/articleFixtures";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { expect } from "vitest";
 
 const mockedNavigate = vi.fn();
 vi.mock("react-router", async () => {
@@ -15,24 +16,23 @@ vi.mock("react-router", async () => {
   };
 });
 
-describe("HelpRequestForm tests", () => {
+describe("ArticleForm tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = [
-    "Requester Email",
-    "TeamId",
-    "Table or Breakout Room",
-    "Request Time (iso format)",
+    "Title",
+    "Url",
     "Explanation",
-    "Solved",
+    "Email",
+    "Date Added(iso format)",
   ];
-  const testId = "HelpRequestForm";
+  const testId = "ArticleForm";
 
   test("renders correctly with no initialContents", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm />
+          <ArticleForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -49,9 +49,7 @@ describe("HelpRequestForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm
-            initialContents={helpRequestFixtures.oneHelpRequest}
-          />
+          <ArticleForm initialContents={articleFixtures.oneArticle} />
         </Router>
       </QueryClientProvider>,
     );
@@ -71,7 +69,7 @@ describe("HelpRequestForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm />
+          <ArticleForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -87,7 +85,7 @@ describe("HelpRequestForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <HelpRequestForm />
+          <ArticleForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -96,19 +94,14 @@ describe("HelpRequestForm tests", () => {
     const submitButton = screen.getByText(/Create/);
     fireEvent.click(submitButton);
 
-    await screen.findByText(/RequesterEmail is required/);
-    expect(screen.getByText(/TeamId is required/)).toBeInTheDocument();
-    expect(
-      screen.getByText(/TableOrBreakoutRoom is required/),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/RequestTime is required/)).toBeInTheDocument();
+    await screen.findByText(/Title is required/);
+    expect(screen.getByText(/Url is required/)).toBeInTheDocument();
     expect(screen.getByText(/Explanation is required/)).toBeInTheDocument();
-    expect(screen.getByText(/Solved is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Email is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Date Added is required/)).toBeInTheDocument();
 
-    const requesterEmailInput = screen.getByTestId(`${testId}-requesterEmail`);
-    fireEvent.change(requesterEmailInput, {
-      target: { value: "a".repeat(256) },
-    });
+    const titleInput = screen.getByTestId(`${testId}-title`);
+    fireEvent.change(titleInput, { target: { value: "a".repeat(256) } });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
