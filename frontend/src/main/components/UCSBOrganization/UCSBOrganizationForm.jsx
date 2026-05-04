@@ -22,14 +22,14 @@ function UCSBOrganizationForm({
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="orgCode">orgCode</Form.Label>
+        <Form.Label htmlFor="orgCode">Org Code</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-orgCode"}
           id="orgCode"
           type="text"
           isInvalid={Boolean(errors.orgCode)}
           {...register("orgCode", {
-            required: "orgCode is required.",
+            required: "Org Code is required.",
           })}
           disabled={Boolean(initialContents)}
         />
@@ -40,7 +40,7 @@ function UCSBOrganizationForm({
 
       <Form.Group className="mb-3">
         <Form.Label htmlFor="orgTranslationShort">
-          orgTranslationShort
+          Org Translation Short
         </Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-orgTranslationShort"}
@@ -48,7 +48,7 @@ function UCSBOrganizationForm({
           type="text"
           isInvalid={Boolean(errors.orgTranslationShort)}
           {...register("orgTranslationShort", {
-            required: "orgTranslationShort is required.",
+            required: "Org Translation Short is required.",
             maxLength: {
               value: 30,
               message: "Max length 30 characters",
@@ -61,14 +61,14 @@ function UCSBOrganizationForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
+        <Form.Label htmlFor="orgTranslation">Org Translation</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-orgTranslation"}
           id="orgTranslation"
           type="text"
           isInvalid={Boolean(errors.orgTranslation)}
           {...register("orgTranslation", {
-            required: "orgTranslation is required.",
+            required: "Org Translation is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -81,7 +81,7 @@ function UCSBOrganizationForm({
           data-testid={testIdPrefix + "-inactive"}
           id="inactive"
           type="checkbox"
-          label="inactive"
+          label="Inactive"
           isInvalid={Boolean(errors.inactive)}
           {...register("inactive")}
         />
