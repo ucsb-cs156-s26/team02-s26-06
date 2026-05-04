@@ -148,7 +148,9 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
       const stationField = screen.getByTestId(
         "UCSBDiningCommonsMenuItem-station",
       );
-      const submitButton = screen.getByTestId("UCSBDiningCommonsMenuItem-submit");
+      const submitButton = screen.getByTestId(
+        "UCSBDiningCommonsMenuItem-submit",
+      );
 
       expect(idField).toHaveValue("17");
       expect(diningCommonsCodeField).toHaveValue("ortega");
@@ -176,7 +178,9 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
       const stationField = screen.getByTestId(
         "UCSBDiningCommonsMenuItem-station",
       );
-      const submitButton = screen.getByTestId("UCSBDiningCommonsMenuItem-submit");
+      const submitButton = screen.getByTestId(
+        "UCSBDiningCommonsMenuItem-submit",
+      );
 
       expect(idField).toHaveValue("17");
       expect(diningCommonsCodeField).toHaveValue("ortega");
@@ -184,7 +188,9 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
       expect(stationField).toHaveValue("entrees");
       expect(submitButton).toBeInTheDocument();
 
-      fireEvent.change(diningCommonsCodeField, { target: { value: "portola" } });
+      fireEvent.change(diningCommonsCodeField, {
+        target: { value: "portola" },
+      });
       fireEvent.change(nameField, { target: { value: "pizza" } });
       fireEvent.change(stationField, { target: { value: "Entrees" } });
 
