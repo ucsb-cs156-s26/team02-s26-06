@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/HelpRequests/HelpRequestForm.jsx</title>
+    <title>Code coverage report for components/RecommendationRequests/RecommendationRequestForm.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/HelpRequests</a> HelpRequestForm.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/RecommendationRequests</a> RecommendationRequestForm.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -219,7 +219,8 @@
 <a name='L154'></a><a href='#L154'>154</a>
 <a name='L155'></a><a href='#L155'>155</a>
 <a name='L156'></a><a href='#L156'>156</a>
-<a name='L157'></a><a href='#L157'>157</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -233,22 +234,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -379,7 +381,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 &nbsp;
-function HelpRequestForm({
+function RecommendationRequestForm({
   initialContents,
   submitAction,
   buttonLabel = "Create",
@@ -394,6 +396,8 @@ function HelpRequestForm({
 &nbsp;
   const navigate = useNavigate();
 &nbsp;
+  const testIdPrefix = "RecommendationRequestForm";
+&nbsp;
   // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
   // Note that even this complex regex may still need some tweaks
 &nbsp;
@@ -401,8 +405,6 @@ function HelpRequestForm({
   const isodate_regex =
     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
   // Stryker restore Regex
-&nbsp;
-  const testIdPrefix = "HelpRequestForm";
 &nbsp;
   return (
     &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
@@ -425,10 +427,10 @@ function HelpRequestForm({
         &lt;Form.Control
           data-testid={testIdPrefix + "-requesterEmail"}
           id="requesterEmail"
-          type="text"
+          type="email"
           isInvalid={Boolean(errors.requesterEmail)}
           {...register("requesterEmail", {
-            required: "RequesterEmail is required",
+            required: "Requester Email is required.",
             maxLength: {
               value: 255,
               message: "Max length 255 characters",
@@ -441,50 +443,17 @@ function HelpRequestForm({
       &lt;/Form.Group&gt;
 &nbsp;
       &lt;Form.Group className="mb-3"&gt;
-        &lt;Form.Label htmlFor="teamId"&gt;TeamId&lt;/Form.Label&gt;
+        &lt;Form.Label htmlFor="professorEmail"&gt;Professor Email&lt;/Form.Label&gt;
         &lt;Form.Control
-          id="teamId"
-          type="text"
-          isInvalid={Boolean(errors.teamId)}
-          {...register("teamId", {
-            required: "TeamId is required",
+          id="professorEmail"
+          type="email"
+          isInvalid={Boolean(errors.professorEmail)}
+          {...register("professorEmail", {
+            required: "Professor Email is required.",
           })}
         /&gt;
         &lt;Form.Control.Feedback type="invalid"&gt;
-          {errors.teamId?.message}
-        &lt;/Form.Control.Feedback&gt;
-      &lt;/Form.Group&gt;
-&nbsp;
-      &lt;Form.Group className="mb-3"&gt;
-        &lt;Form.Label htmlFor="tableOrBreakoutRoom"&gt;
-          Table or Breakout Room
-        &lt;/Form.Label&gt;
-        &lt;Form.Control
-          id="tableOrBreakoutRoom"
-          type="text"
-          isInvalid={Boolean(errors.tableOrBreakoutRoom)}
-          {...register("tableOrBreakoutRoom", {
-            required: "TableOrBreakoutRoom is required",
-          })}
-        /&gt;
-        &lt;Form.Control.Feedback type="invalid"&gt;
-          {errors.tableOrBreakoutRoom?.message}
-        &lt;/Form.Control.Feedback&gt;
-      &lt;/Form.Group&gt;
-&nbsp;
-      &lt;Form.Group className="mb-3"&gt;
-        &lt;Form.Label htmlFor="requestTime"&gt;Request Time (iso format)&lt;/Form.Label&gt;
-        &lt;Form.Control
-          id="requestTime"
-          type="datetime-local"
-          isInvalid={Boolean(errors.requestTime)}
-          {...register("requestTime", {
-            required: true,
-            pattern: isodate_regex,
-          })}
-        /&gt;
-        &lt;Form.Control.Feedback type="invalid"&gt;
-          {errors.requestTime &amp;&amp; "RequestTime is required"}
+          {errors.professorEmail?.message}
         &lt;/Form.Control.Feedback&gt;
       &lt;/Form.Group&gt;
 &nbsp;
@@ -495,7 +464,7 @@ function HelpRequestForm({
           type="text"
           isInvalid={Boolean(errors.explanation)}
           {...register("explanation", {
-            required: "Explanation is required",
+            required: "Explanation is required.",
           })}
         /&gt;
         &lt;Form.Control.Feedback type="invalid"&gt;
@@ -504,17 +473,51 @@ function HelpRequestForm({
       &lt;/Form.Group&gt;
 &nbsp;
       &lt;Form.Group className="mb-3"&gt;
-        &lt;Form.Label htmlFor="solved"&gt;Solved&lt;/Form.Label&gt;
+        &lt;Form.Label htmlFor="dateRequested"&gt;
+          Date Requested(iso format)
+        &lt;/Form.Label&gt;
         &lt;Form.Control
-          id="solved"
-          type="text"
-          isInvalid={Boolean(errors.solved)}
-          {...register("solved", {
-            required: "Solved is required",
+          id="dateRequested"
+          type="datetime-local"
+          isInvalid={Boolean(errors.dateRequested)}
+          {...register("dateRequested", {
+            required: true,
+            pattern: isodate_regex,
           })}
         /&gt;
         &lt;Form.Control.Feedback type="invalid"&gt;
-          {errors.solved?.message}
+          {errors.dateRequested &amp;&amp; "Date Requested is required. "}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="dateNeeded"&gt;Date Needed(iso format)&lt;/Form.Label&gt;
+        &lt;Form.Control
+          id="dateNeeded"
+          type="datetime-local"
+          isInvalid={Boolean(errors.dateNeeded)}
+          {...register("dateNeeded", {
+            required: true,
+            pattern: isodate_regex,
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.dateNeeded &amp;&amp; "Date Needed is required. "}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="done"&gt;Done&lt;/Form.Label&gt;
+        &lt;Form.Control
+          id="done"
+          type="text"
+          isInvalid={Boolean(errors.done)}
+          {...register("done", {
+            required: "Done is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.done?.message}
         &lt;/Form.Control.Feedback&gt;
       &lt;/Form.Group&gt;
 &nbsp;
@@ -530,7 +533,7 @@ function HelpRequestForm({
   );
 }
 &nbsp;
-export default HelpRequestForm;
+export default RecommendationRequestForm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
