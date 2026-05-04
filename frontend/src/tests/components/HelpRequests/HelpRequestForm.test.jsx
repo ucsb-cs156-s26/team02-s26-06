@@ -19,12 +19,12 @@ describe("HelpRequestForm tests", () => {
   const queryClient = new QueryClient();
 
   const expectedHeaders = [
-    "requesterEmail",
-    "teamId",
-    "tableOrBreakoutRoom",
-    "requestTime (iso format)",
-    "explanation",
-    "solved",
+    "Requester Email",
+    "TeamId",
+    "Table or Breakout Room",
+    "Request Time (iso format)",
+    "Explanation",
+    "Solved",
   ];
   const testId = "HelpRequestForm";
 

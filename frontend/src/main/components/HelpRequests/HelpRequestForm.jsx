@@ -44,7 +44,7 @@ function HelpRequestForm({
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="requesterEmail">requesterEmail</Form.Label>
+        <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-requesterEmail"}
           id="requesterEmail"
@@ -64,7 +64,7 @@ function HelpRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="teamId">teamId</Form.Label>
+        <Form.Label htmlFor="teamId">TeamId</Form.Label>
         <Form.Control
           id="teamId"
           type="text"
@@ -80,7 +80,7 @@ function HelpRequestForm({
 
       <Form.Group className="mb-3">
         <Form.Label htmlFor="tableOrBreakoutRoom">
-          tableOrBreakoutRoom
+          Table or Breakout Room
         </Form.Label>
         <Form.Control
           id="tableOrBreakoutRoom"
@@ -96,7 +96,7 @@ function HelpRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="requestTime">requestTime (iso format)</Form.Label>
+        <Form.Label htmlFor="requestTime">Request Time (iso format)</Form.Label>
         <Form.Control
           id="requestTime"
           type="datetime-local"
@@ -112,7 +112,7 @@ function HelpRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="explanation">explanation</Form.Label>
+        <Form.Label htmlFor="explanation">Explanation</Form.Label>
         <Form.Control
           id="explanation"
           type="text"
@@ -127,7 +127,7 @@ function HelpRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="solved">solved</Form.Label>
+        <Form.Label htmlFor="solved">Solved</Form.Label>
         <Form.Control
           id="solved"
           type="text"
