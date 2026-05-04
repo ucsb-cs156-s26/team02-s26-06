@@ -19,6 +19,14 @@ function RecommendationRequestForm({
 
   const testIdPrefix = "RecommendationRequestForm";
 
+  // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
+  // Note that even this complex regex may still need some tweaks
+
+  // Stryker disable Regex
+  const isodate_regex =
+    /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+  // Stryker restore Regex
+
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
       {initialContents && (
@@ -36,18 +44,14 @@ function RecommendationRequestForm({
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="requesterEmail">RequesterEmail</Form.Label>
+        <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-requesterEmail"}
           id="requesterEmail"
-          type="text"
+          type="email"
           isInvalid={Boolean(errors.requesterEmail)}
           {...register("requesterEmail", {
-            required: "RequesterEmail is required.",
-            maxLength: {
-              value: 255,
-              message: "Max length 255 characters",
-            },
+            required: "Requester Email is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -56,18 +60,14 @@ function RecommendationRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="professorEmail">ProfessorEmail</Form.Label>
+        <Form.Label htmlFor="professorEmail">Professor Email</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-professorEmail"}
           id="professorEmail"
-          type="text"
+          type="email"
           isInvalid={Boolean(errors.professorEmail)}
           {...register("professorEmail", {
-            required: "ProfessorEmail is required.",
-            maxLength: {
-              value: 255,
-              message: "Max length 255 characters",
-            },
+            required: "Professor Email is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -76,20 +76,63 @@ function RecommendationRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="description">Description</Form.Label>
+        <Form.Label htmlFor="explanation">Explanation</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-description"}
-          id="description"
+          data-testid={testIdPrefix + "-explanation"}
+          id="explanation"
           type="text"
-          isInvalid={Boolean(errors.description)}
-          {...register("description", {
-            required: "Description is required.",
+          isInvalid={Boolean(errors.explanation)}
+          {...register("explanation", {
+            required: "Explanation is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.description?.message}
+          {errors.explanation?.message}
         </Form.Control.Feedback>
       </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="dateRequested">Date Requested(iso format)</Form.Label>
+        <Form.Control
+          id="dateRequested"
+          type="datetime-local"
+          isInvalid={Boolean(errors.dateRequested)}
+          {...register("dateRequested", {
+            required: true,
+            pattern: isodate_regex,
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.dateRequested && "Date Requested is required. "}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="dateNeeded">Date Needed(iso format)</Form.Label>
+        <Form.Control
+          id="dateNeeded"
+          type="datetime-local"
+          isInvalid={Boolean(errors.dateNeeded)}
+          {...register("dateNeeded", {
+            required: true,
+            pattern: isodate_regex,
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.dateNeeded && "Date Needed is required. "}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Check
+          data-testid={testIdPrefix + "-done"}
+          id="done"
+          type="checkbox"
+          label="Done"
+          {...register("done")}
+        />
+      </Form.Group>
+      
 
       <Button type="submit" data-testid={testIdPrefix + "-submit"}>
         {buttonLabel}
