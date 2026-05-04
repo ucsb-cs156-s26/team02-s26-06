@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 import { hasRole } from "main/utils/useCurrentUser";
 
 export default function HelpRequestTable({
-  helpRequests,
+  helpRequests = [],
   currentUser,
   testIdPrefix = "HelpRequestTable",
 }) {

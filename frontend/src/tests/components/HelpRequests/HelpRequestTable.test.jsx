@@ -75,7 +75,7 @@ describe("HelpRequestTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <HelpRequestTable
-            helpRequests={helpRequestFixtures.threeHelpRequest}
+            helpRequests={helpRequestFixtures.threeHelpRequests}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -129,7 +129,7 @@ describe("HelpRequestTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <HelpRequestTable
-            helpRequests={helpRequestFixtures.threeHelpRequest}
+            helpRequests={helpRequestFixtures.threeHelpRequests}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -174,7 +174,7 @@ describe("HelpRequestTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <HelpRequestTable
-            helpRequests={helpRequestFixtures.threeHelpRequest}
+            helpRequests={helpRequestFixtures.threeHelpRequests}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -217,7 +217,7 @@ describe("HelpRequestTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <HelpRequestTable
-            helpRequests={helpRequestFixtures.threeHelpRequest}
+            helpRequests={helpRequestFixtures.threeHelpRequests}
             currentUser={currentUser}
           />
         </MemoryRouter>
