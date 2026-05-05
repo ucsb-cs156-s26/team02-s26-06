@@ -28,7 +28,7 @@ function ArticleForm({
   // Stryker restore Regex
 
   return (
-    <Form onSubmit={handleSubmit(submitAction)}>
+    <Form noValidate onSubmit={handleSubmit(submitAction)}>
       {initialContents && (
         <Form.Group className="mb-3">
           <Form.Label htmlFor="id">Id</Form.Label>
@@ -109,6 +109,7 @@ function ArticleForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
+        
         <Form.Label htmlFor="dateAdded">Date Added(iso format)</Form.Label>
         <Form.Control
           id="dateAdded"
