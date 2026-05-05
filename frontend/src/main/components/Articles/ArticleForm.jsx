@@ -28,7 +28,7 @@ function ArticleForm({
   // Stryker restore Regex
 
   return (
-    <Form onSubmit={handleSubmit(submitAction)}>
+    <Form noValidate onSubmit={handleSubmit(submitAction)}>
       {initialContents && (
         <Form.Group className="mb-3">
           <Form.Label htmlFor="id">Id</Form.Label>
@@ -97,7 +97,7 @@ function ArticleForm({
         <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Control
           id="email"
-          type="email"
+          type="text"
           isInvalid={Boolean(errors.email)}
           {...register("email", {
             required: "Email is required.",
