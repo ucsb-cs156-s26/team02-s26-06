@@ -68,7 +68,7 @@ describe("ArticleCreatePage tests", () => {
       url: "https://www.bbc.com/news/articles/cx2l20rwxgxo",
       explanation: "Explaining the daffodil bloom",
       email: "prishabobde@gmail.com",
-      dateAdded: "2024-12-12T05:06:05",
+      dateAdded: "2024-12-12T05:06",
     };
 
     axiosMock.onPost("/api/articles/post").reply(202, article);
@@ -116,7 +116,7 @@ describe("ArticleCreatePage tests", () => {
       target: { value: "Explaining the daffodil bloom" },
     });
     fireEvent.change(dateAddedInput, {
-      target: { value: "2024-12-12T05:06:05" },
+      target: { value: "2024-12-12T05:06" },
     });
     fireEvent.click(createButton);
 
@@ -129,7 +129,7 @@ describe("ArticleCreatePage tests", () => {
       url: "https://www.bbc.com/news/articles/cx2l20rwxgxo",
       explanation: "Explaining the daffodil bloom",
       email: "prishabobde@gmail.com",
-      dateAdded: "2024-12-12T05:06:05.000",
+      dateAdded: "2024-12-12T05:06",
     });
 
     // assert - check that the toast was called with the expected message
