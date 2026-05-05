@@ -8,7 +8,7 @@ const helpRequestFixtures = {
     explanation: "Help with dokku deployment",
     solved: false,
   },
-  threeHelpRequest: [
+  threeHelpRequests: [
     {
       id: 1,
       requesterEmail: "cgaucho@ucsb.edu",
