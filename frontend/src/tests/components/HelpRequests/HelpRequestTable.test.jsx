@@ -33,7 +33,7 @@ describe("HelpRequestTable tests", () => {
     "requesterEmail",
     "teamId",
     "tableOrBreakoutRoom",
-    "requestTime (iso format)",
+    "requestTime",
     "explanation",
     "solved",
   ];
