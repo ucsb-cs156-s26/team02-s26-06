@@ -60,7 +60,6 @@ describe("ArticleCreatePage tests", () => {
     });
   });
 
-
   test("on submit, makes request to backend, and redirects to /articles", async () => {
     const queryClient = new QueryClient();
     const article = {
@@ -104,8 +103,6 @@ describe("ArticleCreatePage tests", () => {
     const createButton = screen.getByText("Create");
     expect(createButton).toBeInTheDocument();
 
-    
-
     fireEvent.change(titleInput, {
       target: { value: "Why are there so many daffodils in Jersey?" },
     });
@@ -124,7 +121,6 @@ describe("ArticleCreatePage tests", () => {
     fireEvent.click(createButton);
 
     //fireEvent.submit(screen.getByTestId("ArticleForm-title").closest("form"));
-
 
     await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
