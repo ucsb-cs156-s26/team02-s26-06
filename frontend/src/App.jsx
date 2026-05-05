@@ -173,29 +173,29 @@ function App() {
           />
         </>
       )}
-        {hasRole(currentUser, "ROLE_USER") && (
-            <>
-                <Route
-                    exact
-                    path="/helprequests"
-                    element={<HelpRequestsIndexPage />}
-                />
-            </>
-        )}
-        {hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-                <Route
-                    exact
-                    path="/helprequests/edit/:id"
-                    element={<HelpRequestsEditPage />}
-                />
-                <Route
-                    exact
-                    path="/helprequests/create"
-                    element={<HelpRequestsCreatePage />}
-                />
-            </>
-        )}
+      {hasRole(currentUser, "ROLE_USER") && (
+        <>
+          <Route
+            exact
+            path="/helprequests"
+            element={<HelpRequestsIndexPage />}
+          />
+        </>
+      )}
+      {hasRole(currentUser, "ROLE_ADMIN") && (
+        <>
+          <Route
+            exact
+            path="/helprequests/edit/:id"
+            element={<HelpRequestsEditPage />}
+          />
+          <Route
+            exact
+            path="/helprequests/create"
+            element={<HelpRequestsCreatePage />}
+          />
+        </>
+      )}
       {hasRole(currentUser, "ROLE_USER") && (
         <>
           <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
