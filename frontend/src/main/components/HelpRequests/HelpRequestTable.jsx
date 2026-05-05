@@ -41,7 +41,7 @@ export default function HelpRequestTable({
     },
 
     {
-      header: "RequesterEmail",
+      header: "Requester Email",
       accessorKey: "requesterEmail",
     },
     {
@@ -49,11 +49,11 @@ export default function HelpRequestTable({
       accessorKey: "teamId",
     },
     {
-      header: "TableOrBreakoutRoom",
+      header: "Table or Breakout Room",
       accessorKey: "tableOrBreakoutRoom",
     },
     {
-      header: "RequestTime (iso format)",
+      header: "Request Time (iso format)",
       accessorKey: "requestTime (iso format)",
     },
     {
