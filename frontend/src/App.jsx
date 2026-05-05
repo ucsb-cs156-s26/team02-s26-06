@@ -23,6 +23,9 @@ import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
+import HelpRequestsIndexPage from "main/pages/HelpRequest/HelpRequestsIndexPage";
+import HelpRequestsCreatePage from "main/pages/HelpRequest/HelpRequestsCreatePage";
+import HelpRequestsEditPage from "main/pages/HelpRequest/HelpRequestsEditPage";
 import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
 import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
 import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
@@ -128,6 +131,29 @@ function App() {
         <>
           <Route
             exact
+            path="/ucsbdiningcommonsmenuitem"
+            element={<UCSBDiningCommonsMenuItemIndexPage />}
+          />
+        </>
+      )}
+      {hasRole(currentUser, "ROLE_ADMIN") && (
+        <>
+          <Route
+            exact
+            path="/ucsbdiningcommonsmenuitem/edit/:id"
+            element={<UCSBDiningCommonsMenuItemEditPage />}
+          />
+          <Route
+            exact
+            path="/ucsbdiningcommonsmenuitem/create"
+            element={<UCSBDiningCommonsMenuItemCreatePage />}
+          />
+        </>
+      )}
+      {hasRole(currentUser, "ROLE_USER") && (
+        <>
+          <Route
+            exact
             path="/ucsborganization"
             element={<UCSBOrganizationIndexPage />}
           />
@@ -147,6 +173,29 @@ function App() {
           />
         </>
       )}
+        {hasRole(currentUser, "ROLE_USER") && (
+            <>
+                <Route
+                    exact
+                    path="/helprequests"
+                    element={<HelpRequestsIndexPage />}
+                />
+            </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+                <Route
+                    exact
+                    path="/helprequests/edit/:id"
+                    element={<HelpRequestsEditPage />}
+                />
+                <Route
+                    exact
+                    path="/helprequests/create"
+                    element={<HelpRequestsCreatePage />}
+                />
+            </>
+        )}
       {hasRole(currentUser, "ROLE_USER") && (
         <>
           <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
