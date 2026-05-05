@@ -43,7 +43,7 @@ Default.parameters = {
           url: "https://www.bbc.com/news/articles/cx2l20rwxgxo/edited",
           explanation: "Explaining the daffodil bloom EDITED",
           email: "prishabobdeEDITED@gmail.com",
-          dateAdded: "2024-11-12T05:06:05",
+          dateAdded: "2024-11-12T05:06",
         },
         { status: 200 },
       );
