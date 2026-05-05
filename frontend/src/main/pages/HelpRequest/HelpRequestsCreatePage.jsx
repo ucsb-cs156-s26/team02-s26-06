@@ -20,7 +20,7 @@ export default function HelpRequestsCreatePage({ storybook = false }) {
 
   const onSuccess = (helpRequest) => {
     toast(
-      `New helpRequest Created - id: ${helpRequest.id} name: ${helpRequest.name}`,
+      `New Help Request Created - id: ${helpRequest.id} requesterEmail: ${helpRequest.requesterEmail}`,
     );
   };
 
@@ -44,7 +44,7 @@ export default function HelpRequestsCreatePage({ storybook = false }) {
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Create New HelpRequest</h1>
+        <h1>Create New Help Request</h1>
         <HelpRequestForm submitAction={onSubmit} />
       </div>
     </BasicLayout>
