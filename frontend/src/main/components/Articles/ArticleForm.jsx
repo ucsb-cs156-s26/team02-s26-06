@@ -97,7 +97,7 @@ function ArticleForm({
         <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Control
           id="email"
-          type="email"
+          type="text"
           isInvalid={Boolean(errors.email)}
           {...register("email", {
             required: "Email is required.",
