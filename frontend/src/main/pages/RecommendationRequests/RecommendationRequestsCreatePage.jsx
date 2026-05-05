@@ -4,7 +4,9 @@ import { Navigate } from "react-router";
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
-export default function RecommendationRequestsCreatePage({ storybook = false }) {
+export default function RecommendationRequestsCreatePage({
+  storybook = false,
+}) {
   const objectToAxiosParams = (recommendationRequest) => ({
     url: "/api/recommendationrequests/post",
     method: "POST",
@@ -20,7 +22,7 @@ export default function RecommendationRequestsCreatePage({ storybook = false }) 
 
   const onSuccess = (recommendationRequest) => {
     toast(
-      `New recommendationRequest Created - id: ${recommendationRequest.id} name: ${recommendationRequest.requesterEmail}`,
+      `New recommendationRequest Created - id: ${recommendationRequest.id} requesterEmail: ${recommendationRequest.requesterEmail}`,
     );
   };
 
