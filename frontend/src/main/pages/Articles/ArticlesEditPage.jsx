@@ -5,7 +5,7 @@ import { Navigate } from "react-router";
 import { useBackend, useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
-export default function ArticlesEditPage({ storybook = false }) {
+export default function ArticleEditPage({ storybook = false }) {
   let { id } = useParams();
 
   const {
