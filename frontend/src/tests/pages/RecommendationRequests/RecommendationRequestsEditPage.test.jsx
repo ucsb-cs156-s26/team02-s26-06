@@ -153,9 +153,7 @@ describe("RecommendationRequestsEditPage tests", () => {
       fireEvent.change(explanationField, {
         target: { value: "BSMS updated" },
       });
-      fireEvent.change(screen.getByLabelText("Done"), {
-        target: { value: "true" },
-      });
+      fireEvent.click(screen.getByTestId("RecommendationRequestForm-done"));
       fireEvent.click(submitButton);
 
       await waitFor(() => expect(mockToast).toBeCalled());
@@ -173,7 +171,7 @@ describe("RecommendationRequestsEditPage tests", () => {
           explanation: "BSMS updated",
           dateRequested: "2026-01-01T08:00:00",
           dateNeeded: "2026-05-01T08:00:00",
-          done: "true",
+          done: true,
         }),
       );
     });
@@ -212,9 +210,7 @@ describe("RecommendationRequestsEditPage tests", () => {
       fireEvent.change(explanationField, {
         target: { value: "BSMS updated" },
       });
-      fireEvent.change(screen.getByLabelText("Done"), {
-        target: { value: "true" },
-      });
+      fireEvent.click(screen.getByTestId("RecommendationRequestForm-done"));
       fireEvent.click(submitButton);
 
       await waitFor(() => expect(mockToast).toBeCalled());

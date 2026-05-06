@@ -22,10 +22,9 @@ describe("RecommendationRequestForm tests", () => {
     "Requester Email",
     "Professor Email",
     "Explanation",
-    "Date Requested(iso format)",
-    "Date Needed(iso format)",
     "Done",
   ];
+  
   const testId = "RecommendationRequestForm";
 
   test("renders correctly with no initialContents", async () => {
@@ -38,6 +37,8 @@ describe("RecommendationRequestForm tests", () => {
     );
 
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-dateRequested`)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-dateNeeded`)).toBeInTheDocument();
 
     expectedHeaders.forEach((headerText) => {
       const header = screen.getByText(headerText);
@@ -103,7 +104,6 @@ describe("RecommendationRequestForm tests", () => {
     expect(screen.getByText(/Explanation is required/)).toBeInTheDocument();
     expect(screen.getByText(/Date Requested is required/)).toBeInTheDocument();
     expect(screen.getByText(/Date Needed is required/)).toBeInTheDocument();
-    expect(screen.getByText(/Done is required/)).toBeInTheDocument();
 
     const requesterEmailInput = screen.getByTestId(`${testId}-requesterEmail`);
     fireEvent.change(requesterEmailInput, {
