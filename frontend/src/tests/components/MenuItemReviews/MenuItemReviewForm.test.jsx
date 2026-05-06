@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router";
 import { expect } from "vitest";
 
 import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm";
@@ -8,8 +8,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 const mockedNavigate = vi.fn();
 
-vi.mock("react-router-dom", async () => {
-  const originalModule = await vi.importActual("react-router-dom");
+vi.mock("react-router", async () => {
+  const originalModule = await vi.importActual("react-router");
   return {
     ...originalModule,
     useNavigate: () => mockedNavigate,
