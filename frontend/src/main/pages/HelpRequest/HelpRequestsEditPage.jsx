@@ -1,7 +1,7 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 
 export default function HelpRequestsEditPage() {
-  // Stryker disable all : placeholder for future implementation
+  // Stryker disable all : help requests for future implementation
   return (
     <BasicLayout>
       <div className="pt-2">
