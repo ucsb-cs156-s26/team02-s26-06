@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import RecommendationRequestsEditPage from "main/pages/RecommendationRequests/RecommendationRequestsEditPage";
+import RecommendationRequestsIndexPage from "main/pages/RecommendationRequests/RecommendationRequestIndexPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
 
@@ -7,9 +7,8 @@ import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-import { expect } from "vitest";
 
-describe("RecommendationRequestsEditPage tests", () => {
+describe("RecommendationRequestsIndexPage tests", () => {
   const axiosMock = new AxiosMockAdapter(axios);
 
   const setupUserOnly = () => {
@@ -30,18 +29,22 @@ describe("RecommendationRequestsEditPage tests", () => {
     setupUserOnly();
 
     // act
+
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <RecommendationRequestsEditPage />
+          <RecommendationRequestsIndexPage />
         </MemoryRouter>
       </QueryClientProvider>,
     );
 
+    await screen.findByText("Index page not yet implemented");
+
     // assert
-    await screen.findByText("Edit page not yet implemented");
     expect(
-      screen.getByText("Edit page not yet implemented"),
+      screen.getByText("Index page not yet implemented"),
     ).toBeInTheDocument();
+    expect(screen.getByText("Create")).toBeInTheDocument();
+    expect(screen.getByText("Edit")).toBeInTheDocument();
   });
 });
