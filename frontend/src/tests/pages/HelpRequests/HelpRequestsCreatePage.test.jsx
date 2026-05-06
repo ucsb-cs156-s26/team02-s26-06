@@ -69,7 +69,7 @@ describe("HelpRequestsCreatePage tests", () => {
       tableOrBreakoutRoom: "2",
       requestTime: "2026-05-02T05:05",
       explanation: "Help with dokku deployment",
-      solved: "false",
+      solved: false,
     };
 
     axiosMock.onPost("/api/helprequests/post").reply(202, helpRequest);
@@ -122,7 +122,7 @@ describe("HelpRequestsCreatePage tests", () => {
     fireEvent.change(explanationInput, {
       target: { value: "Help with dokku deployment" },
     });
-    fireEvent.change(solvedInput, { target: { value: "false" } });
+    expect(solvedInput).not.toBeChecked();
 
     fireEvent.click(createButton);
 
@@ -134,7 +134,7 @@ describe("HelpRequestsCreatePage tests", () => {
       tableOrBreakoutRoom: "2",
       requestTime: "2026-05-02T05:05",
       explanation: "Help with dokku deployment",
-      solved: "false",
+      solved: false,
     });
 
     // assert - check that the toast was called with the expected message

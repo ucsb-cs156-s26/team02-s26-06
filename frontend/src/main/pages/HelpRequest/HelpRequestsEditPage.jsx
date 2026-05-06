@@ -37,7 +37,7 @@ export default function HelpRequestsEditPage({ storybook = false }) {
       tableOrBreakoutRoom: helpRequest.tableOrBreakoutRoom,
       requestTime: helpRequest.requestTime,
       explanation: helpRequest.explanation,
-      solved: helpRequest.solved,
+      solved: Boolean(helpRequest.solved),
     },
   });
 

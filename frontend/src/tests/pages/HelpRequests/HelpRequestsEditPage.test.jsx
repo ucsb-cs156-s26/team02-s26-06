@@ -93,7 +93,7 @@ describe("HelpRequestsEditPage tests", () => {
         tableOrBreakoutRoom: "2",
         requestTime: "2026-05-02T05:05",
         explanation: "Help with dokku deployment",
-        solved: "false",
+        solved: false,
       });
       axiosMock.onPut("/api/helprequests").reply(200, {
         id: 17,
@@ -102,7 +102,7 @@ describe("HelpRequestsEditPage tests", () => {
         tableOrBreakoutRoom: "2",
         requestTime: "2026-05-02T05:05",
         explanation: "Help with dokku deployments",
-        solved: "true",
+        solved: true,
       });
     });
 
@@ -149,7 +149,7 @@ describe("HelpRequestsEditPage tests", () => {
       expect(tableOrBreakoutRoomField).toHaveValue("2");
       expect(requestTimeField).toHaveValue("2026-05-02T05:05");
       expect(explanationField).toHaveValue("Help with dokku deployment");
-      expect(solvedField).toHaveValue("false");
+      expect(solvedField).not.toBeChecked();
       expect(submitButton).toHaveTextContent("Update");
 
       fireEvent.change(requesterEmailField, {
@@ -163,7 +163,7 @@ describe("HelpRequestsEditPage tests", () => {
       fireEvent.change(explanationField, {
         target: { value: "Help with dokku deployments" },
       });
-      fireEvent.change(solvedField, { target: { value: "true" } });
+      fireEvent.click(solvedField);
       fireEvent.click(submitButton);
 
       await waitFor(() => expect(mockToast).toBeCalled());
@@ -182,7 +182,7 @@ describe("HelpRequestsEditPage tests", () => {
           tableOrBreakoutRoom: "2",
           requestTime: "2026-05-02T05:05",
           explanation: "Help with dokku deployments",
-          solved: "true",
+          solved: true,
         }),
       ); // posted object
     });
@@ -221,7 +221,7 @@ describe("HelpRequestsEditPage tests", () => {
       expect(tableOrBreakoutRoomField).toHaveValue("2");
       expect(requestTimeField).toHaveValue("2026-05-02T05:05");
       expect(explanationField).toHaveValue("Help with dokku deployment");
-      expect(solvedField).toHaveValue("false");
+      expect(solvedField).not.toBeChecked();
       expect(submitButton).toBeInTheDocument();
 
       fireEvent.change(requesterEmailField, {
@@ -235,7 +235,7 @@ describe("HelpRequestsEditPage tests", () => {
       fireEvent.change(explanationField, {
         target: { value: "Help with dokku deployments" },
       });
-      fireEvent.change(solvedField, { target: { value: "true" } });
+      fireEvent.click(solvedField);
 
       fireEvent.click(submitButton);
 
