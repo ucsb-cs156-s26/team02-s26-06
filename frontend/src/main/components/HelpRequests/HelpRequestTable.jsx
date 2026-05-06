@@ -54,7 +54,7 @@ export default function HelpRequestTable({
     },
     {
       header: "Request Time (iso format)",
-      accessorKey: "requestTime (iso format)",
+      accessorKey: "requestTime",
     },
     {
       header: "Explanation",

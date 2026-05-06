@@ -5,7 +5,7 @@ const articleFixtures = {
     url: "https://www.bbc.com/news/articles/cx2l20rwxgxo",
     explanation: "Explaining the daffodil bloom",
     email: "prishabobde@gmail.com",
-    dateAdded: "2024-12-12T05:06:05",
+    dateAdded: "2024-12-12T05:06",
   },
   threeArticles: [
     {
@@ -14,7 +14,7 @@ const articleFixtures = {
       url: "https://www.bbc.com/news/articles/cx2l20rwxgxo",
       explanation: "Explaining the daffodil bloom",
       email: "prishabobde@gmail.com",
-      dateAdded: "2024-12-12T05:06:05",
+      dateAdded: "2024-12-12T05:06",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const articleFixtures = {
       url: "https://www.bbc.com/news/videos/c4gjmp9de59o",
       explanation: "Firefall video",
       email: "prishabobde@ucsb.edu",
-      dateAdded: "2025-09-12T05:06:05",
+      dateAdded: "2025-09-12T05:06",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const articleFixtures = {
       url: "https://www.bbc.com/news/articles/cpqw7z87qv3o",
       explanation: "Penpals across generations",
       email: "prishabobde@ucsb.edu",
-      dateAdded: "2026-10-11T05:06:04",
+      dateAdded: "2026-10-11T05:06",
     },
   ],
 };
