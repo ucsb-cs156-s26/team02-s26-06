@@ -2,7 +2,7 @@ import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 import MenuItemReviewTable from "main/components/MenuItemReviews/MenuItemReviewTable";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
@@ -10,8 +10,8 @@ import { expect } from "vitest";
 
 const mockedNavigate = vi.fn();
 
-vi.mock("react-router-dom", async () => {
-  const originalModule = await vi.importActual("react-router-dom");
+vi.mock("react-router", async () => {
+  const originalModule = await vi.importActual("react-router");
   return {
     ...originalModule,
     useNavigate: () => mockedNavigate,

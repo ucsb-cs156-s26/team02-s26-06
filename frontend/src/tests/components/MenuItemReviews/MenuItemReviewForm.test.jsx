@@ -4,7 +4,7 @@ import { expect } from "vitest";
 
 import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm";
 import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const mockedNavigate = vi.fn();
 
