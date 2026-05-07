@@ -66,6 +66,7 @@ function RecommendationRequestForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="professorEmail">Professor Email</Form.Label>
         <Form.Control
+          data-testid={testIdPrefix + "-professorEmail"}
           id="professorEmail"
           type="email"
           isInvalid={Boolean(errors.professorEmail)}
@@ -81,6 +82,7 @@ function RecommendationRequestForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="explanation">Explanation</Form.Label>
         <Form.Control
+          data-testid={testIdPrefix + "-explanation"}
           id="explanation"
           type="text"
           isInvalid={Boolean(errors.explanation)}
@@ -98,6 +100,7 @@ function RecommendationRequestForm({
           Date Requested(iso format)
         </Form.Label>
         <Form.Control
+          data-testid={testIdPrefix + "-dateRequested"}
           id="dateRequested"
           type="datetime-local"
           isInvalid={Boolean(errors.dateRequested)}
@@ -114,6 +117,7 @@ function RecommendationRequestForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="dateNeeded">Date Needed(iso format)</Form.Label>
         <Form.Control
+          data-testid={testIdPrefix + "-dateNeeded"}
           id="dateNeeded"
           type="datetime-local"
           isInvalid={Boolean(errors.dateNeeded)}
@@ -128,18 +132,13 @@ function RecommendationRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="done">Done</Form.Label>
-        <Form.Control
+        <Form.Check
+          data-testid={testIdPrefix + "-done"}
           id="done"
-          type="text"
-          isInvalid={Boolean(errors.done)}
-          {...register("done", {
-            required: "Done is required.",
-          })}
+          type="checkbox"
+          label="Done"
+          {...register("done")}
         />
-        <Form.Control.Feedback type="invalid">
-          {errors.done?.message}
-        </Form.Control.Feedback>
       </Form.Group>
 
       <Button type="submit">{buttonLabel}</Button>
