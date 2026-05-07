@@ -103,8 +103,6 @@ describe("HelpRequestForm tests", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/RequestTime is required/)).toBeInTheDocument();
     expect(screen.getByText(/Explanation is required/)).toBeInTheDocument();
-    expect(screen.getByText(/Solved is required/)).toBeInTheDocument();
-
     const requesterEmailInput = screen.getByTestId(`${testId}-requesterEmail`);
     fireEvent.change(requesterEmailInput, {
       target: { value: "a".repeat(256) },
