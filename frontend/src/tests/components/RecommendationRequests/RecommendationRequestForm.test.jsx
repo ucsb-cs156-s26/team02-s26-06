@@ -39,6 +39,8 @@ describe("RecommendationRequestForm tests", () => {
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-dateRequested`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-dateNeeded`)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-professorEmail`)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-explanation`)).toBeInTheDocument();
 
     expectedHeaders.forEach((headerText) => {
       const header = screen.getByText(headerText);
