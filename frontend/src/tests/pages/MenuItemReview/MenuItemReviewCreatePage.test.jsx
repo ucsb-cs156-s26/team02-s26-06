@@ -62,7 +62,7 @@ describe("MenuItemReviewCreatePage tests", () => {
     });
   });
 
-  test("on submit, makes request to backend, and redirects to /menuItemReview", async () => {
+  test("on submit, makes request to backend, and redirects to /menuitemreview", async () => {
     const queryClient = new QueryClient();
     const menuItemReview = {
       id: 1,
@@ -118,6 +118,6 @@ describe("MenuItemReviewCreatePage tests", () => {
     expect(mockToast).toBeCalledWith(
       "New Menu Item Review Created - itemId: 1 reviewerEmail: aidenhunter@ucsb.edu stars: 5 comments: I love in n out! dateReviewed: 2026-06-12T14:00",
     );
-    expect(mockNavigate).toBeCalledWith({ to: "/menuItemReview" });
+    expect(mockNavigate).toBeCalledWith({ to: "/menuitemreview" });
   });
 });
