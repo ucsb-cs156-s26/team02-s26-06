@@ -4,7 +4,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures";
 import { http, HttpResponse } from "msw";
 
-import RecommendationRequestsIndexPage from "main/pages/RecommendationRequests/RecommendationRequestsIndexPage";
+import RecommendationRequestsIndexPage from "main/pages/RecommendationRequests/RecommendationRequestIndexPage";
 
 export default {
   title: "pages/RecommendationRequests/RecommendationRequestsIndexPage",
