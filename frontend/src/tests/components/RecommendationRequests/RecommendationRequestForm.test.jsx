@@ -24,7 +24,7 @@ describe("RecommendationRequestForm tests", () => {
     "Explanation",
     "Done",
   ];
-  
+
   const testId = "RecommendationRequestForm";
 
   test("renders correctly with no initialContents", async () => {
