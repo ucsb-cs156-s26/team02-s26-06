@@ -1,7 +1,7 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
-import RecommendationRequestsEditPage from "main/pages/RecommendationRequests/RecommendationRequestsEditPage";
+import RecommendationRequestsEditPage from "main/pages/RecommendationRequests/RecommendationRequestEditPage";
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -153,7 +153,9 @@ describe("RecommendationRequestsEditPage tests", () => {
       fireEvent.change(explanationField, {
         target: { value: "BSMS updated" },
       });
-      fireEvent.click(screen.getByTestId("RecommendationRequestForm-done"));
+      fireEvent.change(screen.getByLabelText("Done"), {
+        target: { value: "true" },
+      });
       fireEvent.click(submitButton);
 
       await waitFor(() => expect(mockToast).toBeCalled());
@@ -171,7 +173,7 @@ describe("RecommendationRequestsEditPage tests", () => {
           explanation: "BSMS updated",
           dateRequested: "2026-01-01T08:00:00",
           dateNeeded: "2026-05-01T08:00:00",
-          done: true,
+          done: "true",
         }),
       );
     });
@@ -210,7 +212,9 @@ describe("RecommendationRequestsEditPage tests", () => {
       fireEvent.change(explanationField, {
         target: { value: "BSMS updated" },
       });
-      fireEvent.click(screen.getByTestId("RecommendationRequestForm-done"));
+      fireEvent.change(screen.getByLabelText("Done"), {
+        target: { value: "true" },
+      });
       fireEvent.click(submitButton);
 
       await waitFor(() => expect(mockToast).toBeCalled());

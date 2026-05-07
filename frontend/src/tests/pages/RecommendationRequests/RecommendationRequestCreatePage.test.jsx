@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import RecommendationRequestsCreatePage from "main/pages/RecommendationRequests/RecommendationRequestsCreatePage";
+import RecommendationRequestsCreatePage from "main/pages/RecommendationRequests/RecommendationRequestCreatePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router";
 
@@ -127,7 +127,7 @@ describe("RecommendationRequestsCreatePage tests", () => {
       target: { value: "2026-05-01T08:00" },
     });
     fireEvent.change(doneInput, {
-      target: { value: false },
+      target: { value: "false" },
     });
 
     fireEvent.click(createButton);
@@ -140,7 +140,7 @@ describe("RecommendationRequestsCreatePage tests", () => {
       explanation: "BSMS",
       dateRequested: "2026-01-01T08:00",
       dateNeeded: "2026-05-01T08:00",
-      done: false,
+      done: "false",
     });
 
     // assert - check that the toast was called with the expected message
